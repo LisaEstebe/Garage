@@ -104,10 +104,10 @@ public class Voiture {
         // TODO: Implémenter cette méthode
         for (Stationnement s : myStationnements) {
             if (s.estEnCours() == true) {
-                System.out.println( s.getGarage() + " : \n "
+                System.out.println( s.getGarage().getName() + " : \n "
                         + "Stationnement{ entree=" + s.getEntree() + ", en cours" + " } \n");
             } else {
-                System.out.println( s.getGarage() + " : \n "
+                System.out.println( s.getGarage().getName() + " : \n "
                         + "Stationnement{ entree=" + s.getEntree() + ", sortie=" + s.getFin() + " } \n");
             }
         }
