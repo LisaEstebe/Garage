@@ -43,8 +43,10 @@ public class Voiture {
 	 * @throws java.lang.Exception si la voiture n'est pas dans un garage
 	 */
 	public void sortDuGarage() throws Exception {
-		throw new UnsupportedOperationException("Pas encore implémenté");
 		// TODO: Implémenter cette méthode
+                //if (this.estDansUnGarage == 'false'))
+                    //throw new Exception("La voiture n'est déjà plus dans un garage");
+            
 		// Trouver le dernier stationnement de la voiture
 		// Terminer ce stationnement
 	}
@@ -62,9 +64,19 @@ public class Voiture {
 	 */
 	public boolean estDansUnGarage() {
 		// TODO: Implémenter cette méthode
-		throw new UnsupportedOperationException("Pas encore implémenté");
 		// Vrai si le dernier stationnement est en cours
-	}
+                
+                // Faux si la liste des stationnements est vide
+                if (myStationnements.isEmpty()){
+                    return false;
+                }
+                // Sinon trouver le dernier stationnement
+                Stationnement s = myStationnements.get(myStationnements.size()-1);
+                //Renvoyer Vrai si le dernier stationnement est en cours et Faux si non
+                return s.estEnCours();
+        }
+                
+	
 
 	/**
 	 * Pour chaque garage visité, imprime le nom de ce garage suivi de la liste des dates d'entrée / sortie dans ce
