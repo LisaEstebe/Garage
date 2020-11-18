@@ -102,15 +102,15 @@ public class Voiture {
      */
     public void imprimeStationnements(PrintStream out) {
         // TODO: Implémenter cette méthode
-        for (Stationnement s : myStationnements) {
-            if (s.estEnCours() == true) {
-                System.out.println( "Garage "+s.getGarage().getName() + " : \n "
-                        + "Stationnement{ entree=" + s.getEntree() + ", en cours" + " } \n");
-            } else {
-                System.out.println( "Garage "+s.getGarage().getName() + " : \n "
-                        + "Stationnement{ entree=" + s.getEntree() + ", sortie=" + s.getFin() + " } \n");
-            }
-        }
+        garagesVisites().forEach(g->{
+            System.out.println(g.toString()+ " : \n");
+            
+                myStationnements.forEach(s -> {
+                    if (g.equals (s.getGarage())){
+                        System.out.println("        "+s.toString()+"\n");
+                    }
+                });
+        });
     }
 
 }
