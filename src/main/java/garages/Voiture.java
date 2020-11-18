@@ -44,11 +44,14 @@ public class Voiture {
 	 */
 	public void sortDuGarage() throws Exception {
 		// TODO: Implémenter cette méthode
-                //if (this.estDansUnGarage == 'false'))
-                    //throw new Exception("La voiture n'est déjà plus dans un garage");
-            
-		// Trouver le dernier stationnement de la voiture
-		// Terminer ce stationnement
+                if (this.estDansUnGarage() == false){
+                    throw new Exception("La voiture n'est pas dans un garage");
+                } else {
+                    // faire sortir la voiture du garage
+                   // trouver le dernier stationnement et le terminer
+            myStationnements.get(myStationnements.size() - 1).terminer();
+                }
+		
 	}
 
 	/**
@@ -94,7 +97,14 @@ public class Voiture {
 	 */
 	public void imprimeStationnements(PrintStream out) {
 		// TODO: Implémenter cette méthode
-		throw new UnsupportedOperationException("Pas encore implémenté");
-	}
+		for (Stationnement s :myStationnements){
+                    if (s.estEnCours()==true){
+                        System.out.print("Garage" + s.getGarage()+ " :" + "Stationnement{ entree=" + s.getEntree() + ", en cours"+" }");
+                    }else{
+                        System.out.print("Garage" + s.getGarage()+ " :" + "Stationnement{ entree=" + s.getEntree() + ", sortie=" + s.getFin()+" }");
+                        }
+                }
+        }
 
 }
+
